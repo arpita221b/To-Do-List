@@ -4,21 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
     <title></title>
   </head>
   <body>
-    <h1>It's <%= kindOfDay %></h1>
-    <ul>
+    <h4 id = "heading" >It's <%= kindOfDay %></h4>
+    <form class="" action="/" method="post">
+      <input type="text" name="userInput" value="">
+      <button type="submit" name="">Add</button>
+    </form>
+
+    <ul class="list-group">
 
   <%    for (var i = 0; i < newListItems.length; i++) { %>
-    <li><%= newListItems[i] %></li>
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+    <%= newListItems[i] %>
+    </li>
 
   <%  } %>
 
     </ul>
-<form class="" action="/" method="post">
-  <input type="text" name="userInput" value="">
-  <button type="submit" name="">Add</button>
+
 </form>
   </body>
 </html>
