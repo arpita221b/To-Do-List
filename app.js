@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-var items = [];
+var items = ["A", "B", "C"];
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -19,7 +19,7 @@ var options = {
 }
 var day = today.toLocaleDateString("en-IN", options);
 
-res.render("list", {kindOfDay: day, newListItem : items});
+res.render("list", {kindOfDay: day, newListItems : items});
 
 });
 
