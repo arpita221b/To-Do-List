@@ -1,5 +1,6 @@
 body{
 background-image: linear-gradient( 68.9deg,  rgba(1,0,82,1) -6.7%, rgba(0,10,59,1) 93.1% );height:100vh;
+
 }
 
 .list-group{
@@ -8,6 +9,23 @@ background-image: linear-gradient( 68.9deg,  rgba(1,0,82,1) -6.7%, rgba(0,10,59,
 }
 .list-group-item{
   width: 20rem;
+}
+form{
+text-align: center;
+
+}
+.input{
+ border: none;
+ border-radius: 0.25rem;
+ padding: 0.5rem 1rem;
+ width: 18rem;
+
+
+ /*
+ color: #212529;
+ text-decoration: none;
+ background-color: #fff;
+ border: 1px solid rgba(0, 0, 0, 0.125); */
 }
 #heading{
   padding-top: 10rem;
@@ -18,11 +36,10 @@ background-image: linear-gradient( 68.9deg,  rgba(1,0,82,1) -6.7%, rgba(0,10,59,
 }
 .add{
   display: inline;
+  align-items: center;
 
 }
-input{
-  border: none;
-}
+
 input:focus{
   outline: none;
 }
