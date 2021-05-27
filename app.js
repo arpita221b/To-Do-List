@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 var items = ["A", "B", "C"];
+workItems = [];
 
 
 app.set("view engine", "ejs");
@@ -23,7 +24,7 @@ var options = {
 }
 var day = today.toLocaleDateString("en-IN", options);
 
-res.render("list", {kindOfDay: day, newListItems : items});
+res.render("list", {listTitle: day, newListItems : items});
 
 });
 
@@ -33,6 +34,17 @@ items.push(item);
 res.redirect("/");
 
 });
+
+app.get("/work", function(req,res){
+  res.render("list", {listTitle: "Work List", newListItems: workItems});
+
+
+});
+app.post("/work", function(req,res){
+    var item = req.body.userInput;
+    workItems.push(item);
+    res.redirect("/work");
+})
 
 app.listen(3000, function() {
   console.log(`Server running on port 3000: http://localhost:${3000} `);
