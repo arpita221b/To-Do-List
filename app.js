@@ -4,7 +4,7 @@ const date = require(__dirname +"/date.js");
 
 const app = express();
 
-const items = ["A", "B", "C"];
+const items = [];
 const workItems = [];
 
 
