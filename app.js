@@ -14,6 +14,7 @@ app.use(express.static("public"));
 
 app.get("/", function(req, res) {
 
+let day = date.getDate();
 
 
 
