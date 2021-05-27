@@ -18,7 +18,6 @@ module.exports.getDay = function (){
 
     var options = {
       weekday: "long",
-
     }
   return today.toLocaleDateString("en-IN", options);
 
