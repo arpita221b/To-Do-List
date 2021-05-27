@@ -39,10 +39,13 @@ app.get("/work", function(req, res) {
     newListItems: workItems
   });
 });
+app.get("/about", function(req,res){
+  res.render("about");
+});
 
 app.post("/", function(req, res) {
   var item = req.body.userInput;
-  console.log(req.body.list);
+  
   if (req.body.list === "Work") {
     workItems.push(item);
     res.redirect("/work");

@@ -48,3 +48,14 @@ input:focus{
   color: white;
 
 }
+.about {
+  text-align: center;
+  color: white;
+  margin: 5rem;
+}
+.foot{
+  color: white;
+  text-align: center;
+  margin: 2rem;
+
+}
