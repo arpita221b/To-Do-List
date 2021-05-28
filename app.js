@@ -53,7 +53,7 @@ Item.find({}, function(err,foundItems){
     res.redirect("/");
 
   }else{
-    res.render("list", {listTitle: day, newListItems: foundItems  });
+    res.render("list", {listTitle: "Today", newListItems: foundItems  });
 
   }
 
@@ -92,12 +92,23 @@ app.get("/about", function(req,res){
 });
 
 app.post("/", function(req, res) {
-  var itemName = req.body.userInput;
+  const itemName = req.body.userInput;
+  const listName = req.body.list;
+
   const item = new Item({
     name: itemName
   });
-  item.save();
-  res.redirect("/");
+  if(listName === "Today"){
+    item.save();
+    res.redirect("/");
+
+  }else{
+    List.findOne({name: listName}, function(err, foundList){
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect("/" + listName);
+    });
+  }
 
 
 });
