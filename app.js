@@ -19,14 +19,14 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-// const item1 = new Item({  name: "A" });
-const items = [];
+const item1 = new Item({  name: "A" });
+const items = [item1];
 
 Item.insertMany(items, function(err) {
   if (err) {
     console.log(err);
   } else {
-    console.log("Successfully savevd default items to DB.");
+    console.log("Successfully saved default items to DB.");
   }
 });
 

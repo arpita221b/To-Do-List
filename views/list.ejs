@@ -1,7 +1,7 @@
 <%- include("header")  -%>
 
   <h4 id="heading">It's <%= listTitle %></h4>
-  <form class="" action="/" method="post">
+  <form class="item" action="/" method="post">
 
     <input class="input" type="text" name="userInput" placeholder="Add Item.." value="">
     <button class="btn-circle" type="submit" name="list" value="<%= listTitle %>"><i class="fa fa-plus "></i></button>
@@ -11,18 +11,20 @@
 
   <ul class="list-group">
 
-    <%    for (var i = 0; i < newListItems.length; i++) { %>
-    <li class="list-group-item">
-      <input class="form-check-input me-1" type="checkbox" value="" aria-label="..." autocomplete="off">
-      <%= newListItems[i] %>
-    </li>
 
-    <%  } %>
+
+    <%   newListItems.forEach(function(item){ %>
+<form action="/delete" method="post">
+<li class="list-group-item">
+<input class="form-check-input me-1" name="checkbox" type="checkbox" aria-label="..." autocomplete="off"> <%= item.name %><span> <i class = "fa fa-times" ></i></span>
+</li>
+</form>
+<%  }) %>
+
 
   </ul>
 
 
-  </form>
 
 
   <%- include("footer")  -%>
