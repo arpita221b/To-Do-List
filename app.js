@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-// const items = [];
-// const workItems = [];
-//
+
 mongoose.connect("mongodb://localhost:27017/newListDB", {useNewUrlParser: true, useUnifiedTopology: true})
 app.set("view engine", "ejs");
+mongoose.set('useFindAndModify', false);
+
 app.use(bodyParser.urlencoded({  extended: true }));
 app.use(express.static("public"));
 
@@ -19,25 +19,30 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-const item1 = new Item({  name: "A" });
-const items = [item1];
-
-Item.insertMany(items, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Successfully saved default items to DB.");
-  }
-});
 
 app.get("/", function(req, res) {
 
 let day = date.getDate();
+Item.find({}, function(err, foundItems){
 
-  res.render("list", {listTitle: day, newListItems: items  });
+      res.render("list", {listTitle: day, newListItems: foundItems });
+
+ });
+
 
 });
 
+app.post("/delete", function(req, res){
+const checkedItemId = req.body.checkbox;
+
+Item.findByIdAndRemove(checkedItemId , function(err){
+  if(!err){
+    console.log("Successfully deleted checked items!");
+    res.redirect("/");
+  }
+
+  });
+});
 app.get("/work", function(req, res) {
   res.render("list", { listTitle: "Work",  newListItems: workItems  });
 });
@@ -46,15 +51,13 @@ app.get("/about", function(req,res){
 });
 
 app.post("/", function(req, res) {
-  var item = req.body.userInput;
+  var itemName = req.body.userInput;
 
-  if (req.body.list === "Work") {
-    workItems.push(item);
-    res.redirect("/work");
-  } else {
-    items.push(item);
-    res.redirect("/");
-  }
+ const item = new Item({
+   name: itemName
+ });
+ item.save();
+ res.redirect("/");
 
 });
 
