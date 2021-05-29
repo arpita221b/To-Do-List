@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-
-mongoose.connect(process.env.URL, {useNewUrlParser: true, useUnifiedTopology: true})
+const uri = process.env.URL
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 app.set("view engine", "ejs");
 mongoose.set('useFindAndModify', false);
 
