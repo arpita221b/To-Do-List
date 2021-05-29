@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname +"/date.js");
@@ -6,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 
-mongoose.connect("mongodb://localhost:27017/newListDB", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://admin-arpita:test123@cluster0.z6rig.mongodb.net/newListDB", {useNewUrlParser: true, useUnifiedTopology: true})
 app.set("view engine", "ejs");
 mongoose.set('useFindAndModify', false);
 
