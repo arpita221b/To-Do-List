@@ -8,7 +8,7 @@ text-align: center;
 }
 
 .list-group{
-  margin: 1rem  ;
+  margin: 1rem;
   align-items: center;
 }
 .list-group-item{
@@ -38,16 +38,8 @@ input:focus{
 .add{
   display: inline;
   align-items: center;
-
 }
 
-#heading{
-  padding-top: 10rem;
-  margin: 1rem;
-  text-align: center;
-  color: white;
-
-}
 .about {
   text-align: center;
   color: white;
@@ -67,4 +59,12 @@ input:focus{
 .fa-times:hover{
   opacity: 0.7;
   cursor: pointer;
+}
+
+#heading{
+  padding-top: 10rem;
+  margin: 1rem;
+  text-align: center;
+  color: white;
+
 }
